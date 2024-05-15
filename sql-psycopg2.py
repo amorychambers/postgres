@@ -10,7 +10,19 @@ cursor = connection.cursor()
 # cursor.execute('SELECT * FROM "Artist"')
 
 #Second query; select only the "name" column from the "Artist" table
-cursor.execute('SELECT "Name" FROM "Artist"')
+# cursor.execute('SELECT "Name" FROM "Artist"')
+
+#Third query; select only "Queen" from the "Artist" table
+# cursor.execute('SELECT * FROM "Artist" WHERE "Name" = %s', ["Queen"])
+
+#Fourth query; select only by "ArtistId" #51 from the "Artist" table
+# cursor.execute('SELECT * FROM "Artist" WHERE "ArtistId" = 51')
+
+#Fifth query; select only the albums with "ArtistId" #51 on the "Album" table
+# cursor.execute('SELECT * FROM "Album" WHERE "ArtistId" = 51')
+
+#Sixth query; select all tracks where the composer is "Queen" from the "Track" table
+cursor.execute('SELECT * FROM "Track" WHERE "Composer" = %s', ["test"])
 
 # Fetch the results (multiple)
 results = cursor.fetchall()
