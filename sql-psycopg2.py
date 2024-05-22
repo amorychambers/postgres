@@ -1,7 +1,7 @@
 import psycopg2
 
 # Connect to 'chinook' database
-connection = psycopg2.connect(database="chinook", user="postgres", password="Lucyisl0st")
+connection = psycopg2.connect(database="chinook", user="postgres", password="postgres")
 
 # Build a cursor object of the database
 cursor = connection.cursor()
@@ -22,7 +22,7 @@ cursor = connection.cursor()
 # cursor.execute('SELECT * FROM "Album" WHERE "ArtistId" = 51')
 
 #Sixth query; select all tracks where the composer is "Queen" from the "Track" table
-cursor.execute('SELECT * FROM "Track" WHERE "Composer" = %s', ["test"])
+cursor.execute('SELECT * FROM "Track" WHERE "Composer" = %s', ["Queen"])
 
 # Fetch the results (multiple)
 results = cursor.fetchall()
